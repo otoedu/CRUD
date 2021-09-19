@@ -1,0 +1,88 @@
+<div class="row">
+   <div class="col-md-4">
+     <div class="card">
+       <div class="card-body">
+         <form #employeeForm= "ngForm" (ngSubmit) = "addEmployee(employeeForm)" >
+
+            <input type="hidden" name="_id" [(ngModel)]="employeeServices.selectedEmployee._id">
+
+           <div class="form-group">
+           <input
+           type="text"
+           class="form-control"
+           name="name"
+           placeholder="Enter your full name"
+           [(ngModel)]="employeeServices.selectedEmployee.name"
+           />
+          </div>
+
+          <div class="form-group">
+          <input
+          type="text"
+          class="form-control"
+          name="user"
+          placeholder="Enter your username"
+          [(ngModel)]="employeeServices.selectedEmployee.user"
+          />
+          </div>
+
+          <div class="form-group">
+          <input
+          type="text"
+          class="form-control"
+          name="mail"
+          placeholder="Enter your mail"
+          [(ngModel)]="employeeServices.selectedEmployee.mail"
+          />
+          </div>
+
+          <div class="form-group">
+            <input
+             type="number"
+             class="form-control"
+             name="cell"
+             placeholder="Enter your cell"
+           [(ngModel)]="employeeServices.selectedEmployee.cell"
+           />
+          </div>
+
+          <button class="btn btn-primary mr-2 " (click)="resetForm(employeeForm)">
+            clean
+          </button>
+          <button class="btn btn-secondary">
+            save
+          </button>
+        </form>
+       </div>
+     </div>
+   </div>
+  <div class="col-md-8">
+       <table class="table table-striped">
+         <thead>
+           <tr>
+             <th>Name</th>
+             <th>User</th>
+             <th>Mail</th>
+             <th>Operations</th>
+           </tr>
+         </thead>
+         <tbody>
+          <tr *ngFor="let employee of employeeServices.employees">
+             <td>{{employee.name}}</td>
+             <td>{{employee.user}}</td>
+             <td>{{employee.mail}}</td>
+             <td>
+               <button class="btn btn-secondary btn-sm" (click)="edit(employee)">
+                 <i class="material-icons">edit</i>
+                </button>
+               <button class="btn btn-danger btn-sm" (click)="delete(employee._id)">
+                 <i class="material-icons">delete</i>
+                </button>
+             </td>
+
+          </tr>
+         </tbody>
+       </table>
+   </div>
+
+</div>

@@ -1,0 +1,41 @@
+###
+
+GET  http://localhost:4000/api/employees
+
+###
+
+POST http://localhost:4000/api/employees
+Content-Type: application/json
+
+{
+    "name": "ian",
+
+    "user": "rols",
+    
+    "mail": "an@Ray",
+    
+    "cell": "26529623"
+     
+}
+
+###
+
+GET  http://localhost:4000/api/employees/61437401a9e8030eae212c2f
+
+###
+
+DELETE  http://localhost:4000/api/employees/61437227d4f845db9f6fb6b2
+
+###
+
+PUT http://localhost:4000/api/employees/61437401a9e8030eae212c2f
+Content-Type: application/json
+
+{
+    
+
+    "user": "ry"
+    
+    
+     
+}
